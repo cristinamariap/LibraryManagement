@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<!--<?import com.gluonhq.charm.glisten.control.TextField?>-->
+
+<AnchorPane prefHeight="601.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AdminController">
+   <children>
+      <Label layoutX="87.0" layoutY="54.0" prefHeight="18.0" prefWidth="174.0" text="CRUD on Regular User" />
+      <Label layoutX="517.0" layoutY="54.0" prefHeight="18.0" prefWidth="149.0" text="CRUD on Book" />
+      <Line endY="600.0" layoutX="485.0" />
+      <TableView fx:id="clientTable" layoutX="103.0" layoutY="115.0" prefHeight="478.0" prefWidth="376.0">
+        <columns>
+          <TableColumn fx:id="idClientCol" prefWidth="26.399993896484375" text="id" />
+          <TableColumn fx:id="addressCol" prefWidth="54.39996337890625" text="address" />
+            <TableColumn fx:id="emailCol" prefWidth="54.4000244140625" text="email" />
+            <TableColumn fx:id="nameCol" prefWidth="58.40003967285156" text="name" />
+            <TableColumn fx:id="usernameCol" prefWidth="66.4000244140625" text="username" />
+            <TableColumn fx:id="passwordCol" prefWidth="61.60009765625" text="password" />
+            <TableColumn fx:id="phoneCol" prefWidth="55.199951171875" text="phone" />
+        </columns>
+      </TableView>
+      <TableView fx:id="bookTable" layoutX="585.0" layoutY="115.0" prefHeight="478.0" prefWidth="313.0">
+         <columns>
+            <TableColumn fx:id="idBookCol" prefWidth="35.20001220703125" text="id" />
+            <TableColumn fx:id="titleCol" prefWidth="64.800048828125" text="title" />
+            <TableColumn fx:id="authorCol" prefWidth="64.800048828125" text="author" />
+            <TableColumn fx:id="editorCol" prefWidth="64.800048828125" text="editor" />
+            <TableColumn fx:id="genreCol" prefWidth="64.800048828125" text="genre" />
+         </columns>
+      </TableView>
+      <VBox layoutX="3.0" layoutY="115.0" prefHeight="478.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="100.0" text="ID:" />
+            <TextField fx:id="clientId" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="NAME:" />
+            <TextField fx:id="name" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="ADDRESS:" />
+            <TextField fx:id="address" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="EMAIL:" />
+            <TextField fx:id="email" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="PHONE:" />
+            <TextField fx:id="phone" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="PASSWORD:" />
+            <TextField fx:id="password" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="USERNAME" />
+            <TextField fx:id="username" />
+            <Button mnemonicParsing="false" onAction="#createClient" prefHeight="26.0" prefWidth="98.0" text="CREATE" />
+            <Button mnemonicParsing="false" onAction="#updateClient" prefHeight="26.0" prefWidth="98.0" text="UPDATE" />
+            <Button mnemonicParsing="false" onAction="#deleteClient" prefHeight="26.0" prefWidth="98.0" text="DELETE" />
+         </children>
+      </VBox>
+      <VBox layoutX="486.0" layoutY="115.0" prefHeight="486.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="100.0" text="ID:" />
+            <TextField fx:id="bookId" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="TITLE:" />
+            <TextField fx:id="title" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="AUTHOR:" />
+            <TextField fx:id="author" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="EDITOR:" />
+            <TextField fx:id="editor" />
+            <Label prefHeight="25.0" prefWidth="100.0" text="GENRE:" />
+            <TextField fx:id="genre" />
+            <Button mnemonicParsing="false" onAction="#createBook" prefHeight="26.0" prefWidth="98.0" text="CREATE" />
+            <Button mnemonicParsing="false" onAction="#updateBook" prefHeight="26.0" prefWidth="98.0" text="UPDATE" />
+            <Button mnemonicParsing="false" onAction="#deleteBook" prefHeight="26.0" prefWidth="98.0" text="DELETE" />
+         </children>
+      </VBox>
+      <Button layoutX="282.0" layoutY="51.0" mnemonicParsing="false" onAction="#loadClient" prefHeight="26.0" prefWidth="150.0" text="Load Regular User DATA" />
+      <Button layoutX="647.0" layoutY="51.0" mnemonicParsing="false" onAction="#loadBook" prefHeight="26.0" prefWidth="126.0" text="Load Book DATA" />
+      <Button layoutX="773.0" layoutY="51.0" mnemonicParsing="false" onAction="#reportFiles" prefHeight="26.0" prefWidth="110.0" text="Report Generate" />
+   </children>
+</AnchorPane>

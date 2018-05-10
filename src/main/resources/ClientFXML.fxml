@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.gluonhq.charm.glisten.control.TextField?>-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ClientController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="154.0" layoutY="23.0" prefHeight="82.0" prefWidth="356.0" text="Client Page " textOverrun="CLIP">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <TableView fx:id="bookTable" layoutX="308.0" layoutY="115.0" prefHeight="344.0" prefWidth="356.0">
+        <columns>
+          <TableColumn fx:id="idBookCol" prefWidth="41.60003662109375" text="id" />
+          <TableColumn fx:id="titleCol" prefWidth="81.5999755859375" text="title" />
+            <TableColumn fx:id="authorCol" prefWidth="76.00006103515625" text="author" />
+            <TableColumn fx:id="editorCol" prefWidth="68.0" text="editor" />
+            <TableColumn fx:id="genreCol" prefWidth="82.4000244140625" text="genre" />
+        </columns>
+      </TableView>
+      <Label layoutX="7.0" layoutY="119.0" prefHeight="18.0" prefWidth="131.0" text="Search a Book using:" />
+      <TextField fx:id="val" layoutX="146.0" layoutY="153.0" prefHeight="26.0" prefWidth="160.0" />
+      <Label layoutX="7.0" layoutY="197.0" prefHeight="18.0" prefWidth="175.0" text="Borrow/Return a book:" />
+      <Label layoutX="7.0" layoutY="226.0" prefHeight="18.0" prefWidth="82.0" text="Book id:" />
+      <TextField fx:id="idBook" layoutX="146.0" layoutY="231.0" prefHeight="26.0" prefWidth="160.0" />
+      <Button layoutX="21.0" layoutY="274.0" mnemonicParsing="false" onAction="#borrow" prefHeight="26.0" prefWidth="102.0" text="Borrow" />
+      <Button layoutX="182.0" layoutY="274.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="26.0" prefWidth="102.0" text="Return" />
+      <DatePicker fx:id="startDate" layoutX="15.0" layoutY="343.0" prefHeight="26.0" prefWidth="148.0" />
+      <DatePicker fx:id="endDate" layoutX="15.0" layoutY="421.0" prefHeight="26.0" prefWidth="148.0" />
+      <Label layoutX="15.0" layoutY="315.0" prefHeight="18.0" prefWidth="148.0" text="From:" />
+      <Label layoutX="15.0" layoutY="391.0" prefHeight="18.0" prefWidth="148.0" text="Until:" />
+      <Button layoutX="176.0" layoutY="378.0" mnemonicParsing="false" onAction="#loadAllBooks" prefHeight="26.0" prefWidth="131.0" text="Load All Books" />
+      <TextField fx:id="searchType" layoutX="146.0" layoutY="115.0" prefHeight="26.0" prefWidth="160.0" />
+      <Button layoutX="7.0" layoutY="140.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="102.0" text="Search" />
+   </children>
+</AnchorPane>
