@@ -15,8 +15,8 @@ public class BorrowingService {
         BorrowingDAO.save(borrow);
     }
 
-    public static void returnBook(int bookId){
-        Borrowing borrowing = BorrowingDAO.getBorrow(bookId);
+    public static void returnBook(int bookId, int clientId){
+        Borrowing borrowing = BorrowingDAO.getBorrow(bookId, clientId);
         BorrowingDAO.returnBook(borrowing);
     }
 

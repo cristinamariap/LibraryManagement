@@ -84,7 +84,7 @@ public class ClientController extends BaseController<String>{
     @FXML
     public void returnBook(){
         setClient();
-        BorrowingService.returnBook(getBookId());
+        BorrowingService.returnBook(getBookId(), client.getId());
     }
 
     @FXML

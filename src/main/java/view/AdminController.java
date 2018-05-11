@@ -6,7 +6,6 @@ import services.BorrowingService;
 import services.ClientService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -77,7 +76,7 @@ public class AdminController extends BaseController<Object>{
 
     private BookService bookService = new BookService();
 
-    int getClientId1() {
+    int getClientId() {
         try{
             int cId = Integer.parseInt(clientId.getText());
 
@@ -87,9 +86,6 @@ public class AdminController extends BaseController<Object>{
         return Integer.parseInt(clientId.getText());
     }
 
-    int getClientId() {
-        return Integer.parseInt(clientId.getText());
-    }
     String getAddress(){
         return address.getText();
     }
