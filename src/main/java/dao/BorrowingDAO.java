@@ -50,9 +50,10 @@ public class BorrowingDAO {
 
 //        Borrowing borrowing = (Borrowing) session.createCriteria(Borrowing.class).add(Restrictions.eq("bookId", bookId)).uniqueResult();
 //        Borrowing borrowing = (Borrowing) session.get(Borrowing.class, bookId);
-
+        System.out.println("");
         session.getTransaction().commit();
         return borrowing;
+
     }
 
 
