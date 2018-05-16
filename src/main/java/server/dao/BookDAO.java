@@ -1,58 +1,62 @@
-package dao;
+package server.dao;
 
-import model.Client;
+import server.model.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class ClientDAO {
-
+public class BookDAO {
     private static SessionFactory sessionFactory = SqlLiteSessionFactory.buildSessionFactory();
 
-    public static void save(Client client) {
+    public static void save(Book book) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(client);
+        session.save(book);
         session.getTransaction().commit();
     }
 
-    public static void update(Client client) {
+    public static void update(Book book) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.update(client);
+        session.update(book);
         session.getTransaction().commit();
     }
 
     public static void delete(int id) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Client client = (Client) session.get(Client.class, id);
-        session.delete(client);
+        Book book = (Book) session.get(Book.class, id);
+        session.delete(book);
         session.getTransaction().commit();
     }
 
-    public static Client read(int id) {
+    public static List<Book> search(String type, String value){
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Client client = (Client) session.get(Client.class, id);
-        session.getTransaction().commit();
-        return client;
+        List<Book> data;
+        String sqlString = String.format("SELECT * FROM Book WHERE %s IS '%s'",type, value);
+
+        Query query = session.createSQLQuery(sqlString)
+                .addEntity(Book.class);
+        data = query.list();
+
+        return data;
     }
 
-    public static Client getClient(String username){
+    public static Book read(int id){
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Client client = (Client) session.createCriteria(Client.class).add(Restrictions.eq("username", username)).uniqueResult();
+        Book book = (Book) session.get(Book.class, id);
         session.getTransaction().commit();
-        return client;
+        return book;
     }
 
-    public static List<Client> load(){
+    public static List<Book> load(){
         Session session = sessionFactory.openSession();
-        List<Client> data;
-        data = session.createCriteria(Client.class).list();
+        List<Book> data;
+        data = session.createCriteria(Book.class).list();
         session.close();
         return data;
     }

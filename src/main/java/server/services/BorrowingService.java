@@ -1,9 +1,9 @@
-package services;
+package server.services;
 
-import dao.BorrowingDAO;
-import model.Book;
-import model.Borrowing;
-import model.Client;
+import server.dao.BorrowingDAO;
+import server.model.Book;
+import server.model.Borrowing;
+import server.model.Client;
 import javax.swing.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -11,7 +11,8 @@ import java.util.List;
 public class BorrowingService {
 
     public static void borrow(int id, LocalDate startDate, LocalDate endDate, int clientId){
-        Borrowing borrow = new Borrowing(startDate, endDate, new Client(){{setId(clientId);}}, new Book(){{setId(id);}});
+//        Borrowing borrow = new Borrowing(startDate, endDate, new Client(){{setId(clientId);}}, new Book(){{setId(id);}});
+        Borrowing borrow = new Borrowing(startDate, endDate, clientId, id);
         BorrowingDAO.save(borrow);
     }
 

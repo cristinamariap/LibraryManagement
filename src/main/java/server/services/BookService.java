@@ -1,7 +1,7 @@
-package services;
+package server.services;
 
-import dao.BookDAO;
-import model.Book;
+import server.dao.BookDAO;
+import server.model.Book;
 
 import java.util.List;
 

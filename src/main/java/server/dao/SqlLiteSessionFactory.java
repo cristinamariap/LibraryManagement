@@ -1,8 +1,8 @@
-package dao;
+package server.dao;
 
-import model.Book;
-import model.Borrowing;
-import model.Client;
+import server.model.Book;
+import server.model.Borrowing;
+import server.model.Client;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

@@ -1,14 +1,14 @@
-package view;
+package client.view;
 
-import com.sun.media.sound.InvalidDataException;
+import client.view.AdminController;
 import javafx.collections.ObservableList;
-import model.Book;
+import server.model.Book;
 import org.junit.Test;
 import org.mockito.Mockito;
-import services.BookService;
+import server.services.BookService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -37,9 +37,17 @@ public class AdminControllerTest {
     @Test(expected = InvalidInputException.class)
     public void throwInvalidInputExceptionForNullFieldsOnBookCreate() {
         adminController = new AdminControllerAllNull();
-        BookService bookService = Mockito.mock(BookService.class);
-        doThrow(InvalidInputException.class).when(bookService).createBook(0, null, null, null, null);
-        adminController.setBookService(bookService);
+        HttpHelper helper = mock(HttpHelper.class);
+        doThrow(InvalidInputException.class).when(helper.post("http://localhost:8080/admin/addBook", new HashMap<String, String>() {{
+            put("bookId", "0");
+            put("author", null);
+            put("editor", null);
+            put("genre", null);
+            put("title", null);
+        }}));
+//        BookService bookService = Mockito.mock(BookService.class);
+//        doThrow(InvalidInputException.class).when(bookService).createBook(0, null, null, null, null);
+//        adminController.setBookService(bookService);
         adminController.createBook();
     }
 

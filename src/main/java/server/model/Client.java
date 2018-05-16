@@ -1,4 +1,4 @@
-package model;
+package server.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,7 +32,6 @@ public class Client implements Serializable{
     }
 
     @Column(name = "email")
-
     private String email;
     @Column(name = "phone")
     private String phone;

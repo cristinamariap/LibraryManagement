@@ -1,6 +1,6 @@
-package services;
+package server.services;
 
-import dao.ClientDAO;
+import server.dao.ClientDAO;
 
 public class LoginService {
 
@@ -8,7 +8,7 @@ public class LoginService {
     private String adminPassword = " ";
     public LoginService() {}
 
-    public boolean isLogin(String user, String password, String option) throws Exception {
+    public boolean isLogin(String user, String password, String option  ){
 
         if (option.equals("Admin")){
             return adminUsername.equals(user) && adminPassword.equals(password);

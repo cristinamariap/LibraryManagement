@@ -1,17 +1,29 @@
-package view;
+package client.view;
 
 import javafx.scene.control.*;
-import services.BookService;
-import services.BorrowingService;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import server.services.BookService;
+import server.services.BorrowingService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Book;
-import model.Client;
-import services.ClientService;
+import server.model.Book;
+import server.model.Client;
+import server.services.ClientService;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientController extends BaseController<String>{
     public static Client client;
@@ -37,6 +49,7 @@ public class ClientController extends BaseController<String>{
     private TableColumn editorCol;
     @FXML
     private TableColumn genreCol;
+
     @FXML
     public void search(){
         ObservableList<Book> lb;
@@ -69,6 +82,8 @@ public class ClientController extends BaseController<String>{
     LocalDate getEndDate(){
         return endDate.getValue();
     }
+
+
     @FXML
     public void borrow(){
         setClient();

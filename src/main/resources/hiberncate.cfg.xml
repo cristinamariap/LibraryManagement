@@ -16,8 +16,8 @@
         <!-- Specifying Session Context -->
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
         <!-- Mapping With Model Class Containing Annotations -->
-        <mapping class="model.Client" />
-        <mapping class="model.Book" />
-        <mapping class="model.Borrowing" />
+        <mapping class="server.model.Client" />
+        <mapping class="server.model.Book" />
+        <mapping class="server.model.Borrowing" />
     </session-factory>
 </hibernate-configuration>

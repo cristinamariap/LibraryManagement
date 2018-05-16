@@ -11,7 +11,7 @@
 
 <!--<?import com.gluonhq.charm.glisten.control.TextField?>-->
 
-<AnchorPane prefHeight="601.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AdminController">
+<AnchorPane prefHeight="601.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.AdminController">
    <children>
       <Label layoutX="87.0" layoutY="54.0" prefHeight="18.0" prefWidth="174.0" text="CRUD on Regular User" />
       <Label layoutX="517.0" layoutY="54.0" prefHeight="18.0" prefWidth="149.0" text="CRUD on Book" />

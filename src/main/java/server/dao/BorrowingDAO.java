@@ -1,6 +1,6 @@
-package dao;
+package server.dao;
 
-import model.Borrowing;
+import server.model.Borrowing;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -40,8 +40,8 @@ public class BorrowingDAO {
 //        List results = cr.list();
 
         Criteria cr = session.createCriteria(Borrowing.class);
-        Criterion clientCriterion = Restrictions.gt("clientId", clientId);
-        Criterion bookCriterion = Restrictions.ilike("bookId",bookId);
+        Criterion clientCriterion = Restrictions.eq("client", clientId);
+        Criterion bookCriterion = Restrictions.eq("book",bookId);
         LogicalExpression andExp = Restrictions.and(clientCriterion, bookCriterion);
 
         cr.add(andExp);

@@ -1,7 +1,7 @@
-package services;
+package server.services;
 
-import dao.ClientDAO;
-import model.Client;
+import server.dao.ClientDAO;
+import server.model.Client;
 
 import java.util.List;
 

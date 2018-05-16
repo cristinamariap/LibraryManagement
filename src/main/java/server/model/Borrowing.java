@@ -1,9 +1,8 @@
-package model;
+package server.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -17,20 +16,18 @@ public class Borrowing implements Serializable {
     private boolean returned;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "clientId", nullable = false)
-    private Client client;
+    @Column(name = "clientId", nullable = false)
+    private int client;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "bookId", nullable = false)
-    private Book book;
+    @Column(name = "bookId", nullable = false)
+    private int book;
 
     public Borrowing() {
 
     }
 
-    public Borrowing(LocalDate startDate, LocalDate endDate, Client client, Book book) {
+    public Borrowing(LocalDate startDate, LocalDate endDate, int client, int book) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.client = client;
@@ -62,19 +59,19 @@ public class Borrowing implements Serializable {
         return returned;
     }
 
-    public Client getClient() {
+    public int getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(int client) {
         this.client = client;
     }
 
-    public Book getBook() {
+    public int getBook() {
         return book;
     }
 
-    public void setBook(Book book) {
+    public void setBook(int book) {
         this.book = book;
     }
 
